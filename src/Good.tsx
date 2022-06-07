@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const Good = (props) => {
-  const [good, setGood] = useState("");
+  const [good, setGood] = useState(props.good);
   const [count, setCount] = useState(good.length);
   const [tmpGood, setTmpGood] = useState(good);
   const [tmpCount, setTmpCount] = useState(count);
@@ -34,11 +34,7 @@ export const Good = (props) => {
     <>
       {editMode ? (
         <div>
-          <textarea
-            value={tmpGood}
-            onChange={handleTextChange}
-           
-          ></textarea>
+          <textarea onChange={handleTextChange}>{tmpGood}</textarea>
           <p>{tmpCount}</p>
           <button onClick={handleCancelBtnClick}>キャンセル</button>
           <button onClick={handleSaveBtnClick}>保存</button>
